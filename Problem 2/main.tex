@@ -1,0 +1,226 @@
+\documentclass[12pt]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{algpseudocode}
+\graphicspath{ {./images/} }
+\usepackage{fancyhdr}
+
+
+\title{ETERNITY: FUNCTION}								
+\author{Pragya Tomar}						
+\date{}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thetitle}
+\cfoot{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+    \vspace*{1 cm}
+\begin{center}    \textsc{\Large Concordia University}\\[2.5 cm]
+{Problem 2 }\\[0.4 cm]
+\end{center}
+	\textsc{\Large  SOEN 6011 - Software Engineering Process }\\[1 cm]
+	\rule{\linewidth}{0.5 mm} \\[0.4 cm]
+	{ \huge \textbf \thetitle}\\[0.5 cm]
+	{ \huge \textbf{($\sigma$)}}
+	\rule{\linewidth}{0.5 mm} \\[1.0 cm]
+
+	
+\begin{center}   {\Large \textbf{\theauthor}} \\[1 cm]
+                 {\large Student ID : 40197757 }\\[0.4 cm]
+                 {\large Repository Address: https://github.com/pragya231/SOEN6011}
+\end{center}
+	
+\end{titlepage}
+
+\tableofcontents
+\pagebreak
+
+\renewcommand{\thesection}{\arabic{section}}
+
+
+\section{\Large \vspace{0.3 cm}Function Requirements}
+\pagenumbering{arabic}
+
+\subsection{\Large \vspace{0.3 cm}Assumptions}
+
+\normalsize{The Standard Deviation function will accept an array X of input numbers. Each of these values $x_i$ can either be a negative number, positive number, decimal number or a zero.}
+
+\subsection{\Large \vspace{0.3 cm}Requirements}
+\normalsize{The current section describes the requirements to implement the Standard Deviation, $\sigma$ function.}
+\\\\
+\textbf{Requirement Id : R1}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & If X = [0] in the $\sigma$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If the user gives 0 as input,
+\\the function will return 0 as output.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestInputZero\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R2}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & X = [Single real number] in to the $\sigma$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If the user gives only one number as input,
+\\the function will return 0 as output.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestSingleNumber\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R3}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & X = [Array of same real numbers] in the $\sigma$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If the user gives X = an\ array\ of\ same\ values as input,  
+\\the function will return a 0 value as output.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestSameNumbers\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R4}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & X = [Array of negative real numbers] in the $\sigma$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If the user gives X = an\ array\ of\ negative\ values as input, 
+\\the function will return a positive real value as output.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestNegativeNumbers\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R5}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & X = [Array of postive real numbers] in the $\sigma$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If the user gives X = an\ array\ of\ positive\ values as input, 
+\\the function will return a positive real number as output.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestPositiveNumbers\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R6}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & X = [Array of decimal numbers] in the $\sigma$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If the user gives X = an\ array\ of\ decimal\ values as input,  
+\\the function will return a positive real value as output.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestDecimalNumbers\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R7}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & x = a real number in the $\sqrt{x}$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If x, a number\ is\ passed\ as input\ to our square root function,  
+\\it will return the precise square root value.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestSquareRoot\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R8}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & x = real number as base, y = real number as exponent in the $x^y$ function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If x, y, a base and exponent number\ is\ passed\ as input\ to our power function,
+\\it will return the precise power value as result.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestPower\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R9}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & x = a char or string in Eternity.numericInputCheck(x) function\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} If x\ is\ passed\ as a string input\ to our numericInputCheck() function,
+\\it will return false as result.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Version} & 1.0\\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestInputisNumber\\                  
+                \end{tabular}
+\\\\\\
+\textbf{Requirement Id : R10}\\\\
+\begin{tabular}{ll}
+\textbf{Overview} & Availability\\
+\textbf{Description} & 
+\begin{tabular}[c]{@{}l@{}} The system may provide the calculation to the user within finite time.
+\end{tabular} \\
+\textbf{Priority} & High \\
+\textbf{Type} & Non-Functional \\
+\textbf{Difficulty} & Medium \\
+\textbf{Owner} & Pragya Tomar\\
+\textbf{Verification Method} &F8\_TestAvailability\\  
+                 \end{tabular}
+
+\begin{thebibliography}{9}
+    
+
+\bibitem{ReqView} 
+ReqView : Nykamp DQ: Requirements Specification Templates
+\\\texttt{https://www.reqview.com/doc/iso-iec-ieee-29148-templates}
+\bibitem{29148} 
+29148-2018-ISO/IEC/IEEE International Standard-Systems and software engineering-Life cycle processes-Requirements engineering,
+\\\texttt{https://standards.ieee.org/standard/29148-2018.html}
+\end{thebibliography}
+
+
+
+\end{document}
